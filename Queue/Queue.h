@@ -15,7 +15,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include <stdbool.h>
+#include <stdio.h>
 #include "boolean.h"
 #include "LIST1.H"
 
@@ -27,26 +27,16 @@
 #define Info(P) (P)->info  
 
 /* Definisi elemen dan address */ 
-typedef struct {
-	/* Kategori penyakit kucing (Ringan, Sedang, Berat)
-	 * Ditentukan dari parameter penyakit
-	 */
-	char *kategoriPenyakit; 
-	/* List penyakit berupa string yang akan di define menajdi integer
-	 * dan akan menjadi pertimbangan di prioritas queue
-	 */
-	List namaPenyakit;
-	/* Nilai parameter penyakit pada linked list namaPenyakit */
-	int parameterPenyakit; 
-}penyakit;
-typedef infoPelanggan {
-	char nama[25]; // Nama Kucing
+typedef struct infoPelanggan {
+	char nama[25]; // Nama Hewan
 	int waktuDatang; // Waktu Kedatangan
 	int waktuEstimasi; // Lama Waktu Estimasi Pelayanan
 	int waktuMulai; // Waktu Estimasi Kucing Mulai Dilayani
 	int waktuAkhir; // Waktu Estimasi Kucing Selesai Dilayani
-	penyakit sakit; // Tipe Penyakit Kucing
+	int nilaiPrioritas; // Nilai Prioritas Setiap Antrian Hewan
+	List listPenyakit; // List Penyakit Hewan
 }infoPelanggan;
+typedef infoPelanggan infotype;
 typedef struct NodeQueue *addrNQ;
 typedef struct NodeQueue {
     infotype info; // address Node NBTree
@@ -101,9 +91,29 @@ void deQueue(Queue *Q, infotype *data);
 */ 
 int NBElmt(Queue Q); 
 
-/* Proses: Melakukan Print Daftar Antrian dari suatu Queue */
-/* Proses Print dilakukan secara traversal */
+/* Melakukan pencetakan daftar penyakit hewan */
+void printPenyakit();
+
+/* Proses : Melakukan pengecekan kategori penyakit hewan berdasarkan nilai prioritas antrian */
+char *kategoriPenyakit(int Penyakit);
+
+/* Menentukan nilai prioritas dari suatu antrian berdasarkan jumlah penyakit yang diderita */
+int HitungNilaiPrioritas(int Ringan, int Sedang, int Berat);
+
+/* Mengembalikan waktu estimasi pelayanan berdasarkan nilai prioritas antrian */
+int PeriksaWaktuEstimasi(int Penyakit);
+
+/* Menghitung waktu estimasi pelayanan */
+int HitungWaktuEstimasi(int Ringan, int Sedang, int Berat);
+
+/* Proses: Melakukan pencetakan daftar antrian dari suatu Queue 
+ * Proses Print dilakukan secara traversal */
 void printQueue(Queue Q);
+
+/* Melakukan registrasi penambahan data pelanggan 
+ * I.S = Q mungkin kosong atau Q mungkin berisi antrian
+ * F.S = Data baru ditambahkan ke antrian */
+void Registrasi(Queue *Q);
 
 
 #endif // QUEUE_H

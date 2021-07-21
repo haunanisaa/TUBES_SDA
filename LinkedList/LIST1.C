@@ -1,12 +1,12 @@
-/* File :  list1.c   					*/
-/* Desk :  body list  berkait dgn representasi fisik    */
-/*         pointer; 					*/
-/* 	   Representasi address dgn pointer 		*/
-/*	   infotype adalah integer			*/
-/* Oleh :  ANI RAHMANI / 23501007 	  		*/
-/* Tgl  :  25/10/01					*/	 
+/* File :  LIST1.h 
+ * Desk :  Deklarasi list berkait dgn representasi fisik pointer. Representasi address dgn pointer
+ * Oleh :  ANI RAHMANI / 23501007 
+ * Tgl  :  25/10/01	
+ * Modifikasi : Hilma Sri Rahayu
+ * Tanggal : 21/07/21
+ */	  
 
-/* body dari List1.h   */
+/* body dari List1.h */
 
 #ifndef list1_C
 #define list1_C 

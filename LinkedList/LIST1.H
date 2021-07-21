@@ -1,9 +1,10 @@
-/* File :  list1.h   					*/
-/* Desk :  deklarasi list  berkait dgn representasi     */
-/* 	   fisik pointer; 				*/
-/* 	   Representasi address dgn pointer 		*/
-/* Oleh :  ANI RAHMANI / 23501007 	  		*/
-/* Tgl  :  25/10/01					*/	 
+/* File :  LIST1.h 
+ * Desk :  Deklarasi list berkait dgn representasi fisik pointer. Representasi address dgn pointer
+ * Oleh :  ANI RAHMANI / 23501007 
+ * Tgl  :  25/10/01	
+ * Modifikasi : Hilma Sri Rahayu
+ * Tanggal : 21/07/21
+ */	 
 
 /* List :  */
 
@@ -18,12 +19,16 @@
 #define Next(P) (P)->next
 #define First(L) ((L).First)
 
-typedef int infotype;	                                        
+typedef struct{
+	int Penyakit;
+	int waktuEstimasi;
+	char kategori[8];
+}infoPenyakit;                                        
 typedef struct tElmtlist *address;
-typedef struct  tElmtlist   {
-	infotype info;
+typedef struct  tElmtlist{
+	infoPenyakit info;
 	address next;
-	}ElmtList;
+}ElmtList;
 
 /* Definisi  List                   */
 /* List Kosong  :  First(L) = Nil   */
@@ -32,7 +37,7 @@ typedef struct  tElmtlist   {
 
 typedef struct {
 	address First;
-	}List;
+}List;
 
 /* ** Prototype   **  */
 /* ** Test List Kosong **  */
