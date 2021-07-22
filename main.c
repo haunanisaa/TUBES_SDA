@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-#include "queue.h"
+#include "Queue.h"
 
 int main (){
 	System("cls");
