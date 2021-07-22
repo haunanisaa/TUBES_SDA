@@ -1,5 +1,5 @@
 /* Program : main.c
- * Deskripsi : main Aplikasi Layanan Dokter Hewan
+ * Deskripsi : main driver Aplikasi Layanan Dokter Hewan
  * Nama : Hilma Sri Rahayu
  * Tanggal : 22 Juli 2021
  */
@@ -10,14 +10,15 @@
 #include "queue.h"
 
 int main (){
+	System("cls");
+	System("COLOR F4");
 	Queue Q;
 	CreateQueue (&Q);
 	
 	int menuPilihan;
 	
 	do{
-		System("cls");
-	    printf("========Aplikasi Layanan Dokter Hewan========\n\n");
+	printf("========Aplikasi Layanan Dokter Hewan========\n\n");
     	puts("1. Registrasi\n");
     	puts("2. Lihat Antrian\n");
     	puts("3. Proses Pelayanan\n");
