@@ -10,8 +10,8 @@
 #include "Queue.h"
 
 int main (){
-	System("cls");
-	System("COLOR F4");
+	system("cls");
+	system("COLOR F4");
 	Queue Q;
 	CreateQueue (&Q);
 	
@@ -32,7 +32,6 @@ int main (){
 		}
 		else if(menuPilihan == 2){
 			PrintQueue(Q);
-			puts("sfdsdf");
 		}
 		else if(menuPilihan == 3){
 			//belum
