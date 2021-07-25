@@ -2,6 +2,7 @@
  * Deskripsi : main driver Aplikasi Layanan Dokter Hewan
  * Nama : Hilma Sri Rahayu
  * Tanggal : 22 Juli 2021
+ * Modifikasi : 25 Juli 2021
  */
 
 #include <stdio.h>
@@ -13,7 +14,7 @@ int main (){
 	system("cls");
 	system("COLOR F4");
 	Queue Q;
-	CreateQueue (&Q);
+	CreateQueue(&Q);
 	
 	int menuPilihan;
 	
@@ -33,26 +34,29 @@ int main (){
     	
     	if(menuPilihan == 1){
     		Registrasi(&Q);
-    		PrintQueue(Q);
-    		getch();
+    		Sleep(1000);
 		}
 		else if(menuPilihan == 2){
-			PrintQueue(Q);
+			printQueue(Q);
 		}
 		else if(menuPilihan == 3){
-			//belum
+			prosesAntrian(&Q);
 		}
 		else if(menuPilihan == 4){
+			printf("					====================================\n");
+			printf("					||       Sampai Jumpa Lagi        ||\n");
+			printf("					||            NINUNINU            ||\n");
+			printf("					====================================\n");
 			exit(0);
 		}
 		else{
-			printf("	  Masukan anda salah\n");
-			printf("	Masukan angka dari 1-4\n");
-			printf("	  Silakan coba lagi");
+			printf("					====================================\n");
+			printf("					||       Masukan Anda Salah       ||\n");
+			printf("					||       Masukan Angka 1-4!       ||\n");
+			printf("					||       Silakan Coba Lagi        ||\n");
+			printf("					====================================\n");
 		}
-
-	}
-	while(menuPilihan !=4);
+	}while(menuPilihan != 4);
+	
 	return 0;
 }
-
