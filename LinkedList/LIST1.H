@@ -50,13 +50,13 @@ void CreateList(List *L);
 /* F.S  :  Terbentuk  List kosong  	*/
 
 /* Manajeman  memory  			*/
-address Alokasi(infotype  X);
+address Alloct(infoPenyakit  X);
  /* Mengirimkan  address  hasil alokasi    sebuah elemen */
  /* Jika alokasi  berhasil, maka  address tidak nil, dan misalnya  */
  /* menghasilkan   P,  maka info(P)=X,  Nest(P)=Nil;               */
  /* Jika alokasi  gagal,  mengirimkan  Nil 			   */
 
-void Dealokasi(address *P);
+void Dealloct(address *P);
 /* I.S  :   P  terdefinisi         	*/
 /* F.S  :   P dikembalikan ke  sistem 	*/
 /*   	    Melakukan  dealokasi, pengembalian address  P */
@@ -64,32 +64,21 @@ void Dealokasi(address *P);
 
 /*   ** PENCARIAN SEBUAH ELEMEN LIST **   */
 
-address Search1(List L, infotype  X);
-/* Mencari apakah  ada elemen list dengan info(P)=X      */
-/* Jika ada, mengirimkan  address elemen tersebut	 */
-/* Jika  tidak ada, mengirimkan Nil 			 */
-
 boolean FSearch(List L, address P);
 /* Mencari apakah  ada elemen List yang  beralamat   P   */
 /* Mengirimkan true jika ada, false jika tidak ada  	 */
 
 
-address SearchPrec(List L, infotype X);
-/* mencari apakah ada elemen List  yang beralamat P 	     */
-/* Mnegirimkan address elemen sebelum elemen yang nilainya X */
-/* Mencari apakah ada elemen List dengan info(P)=X	     */
-/* Jika ada, mengirimkan address Prec, dengan Next(Prec)=P   */
-
 /* ** PRIMITIF BERDASARKAN NILAI ** */
 
 /* ** Penambahan Elemen ** */
-void InsVFirst(List *L, infotype X);
+void InsVFirst(List *L, infoPenyakit X);
 /* I.S  : L mungkin kosong          */
 /* F.S  : Melakukan alokasi sebuah elemen dan                */
 /*        menambahkan elemen pertama dengan nilai X jika     */
 /*        Alokasi berhasil 				     */
 
-void InsVLast(List *L, infotype X);
+void InsVLast(List *L, infoPenyakit X);
 /* I.S  : L mungkin kosong          */
 /* F.S  : Melakukan alokasi sebuah elemen dan                */
 /*        menambahkan elemen list di akhir; elemen terakhir  */
@@ -98,14 +87,13 @@ void InsVLast(List *L, infotype X);
 
 /* *** Penghapusan Elemen  ***  */
 	  
-
-void DelVFirst(List *L, infotype *X);
+void DelVFirst(List *L, infoPenyakit *X);
   /* I.S    : List tidak kosong  		                 */
   /* F.S    : Elemen pertama List dihapus, nilai info disimpan   */
   /*	      pada X dan alamat elemen pertama  di-dealokasi 	 */
 
 
-void DelVLast(List *L, infotype *X);
+void DelVLast(List *L, infoPenyakit *X);
   /* I.S    : List tidak kosong  		                 */
   /* F.S    : Elemen terakhir list dihapus, nilai info disimpan  */
   /*	      pada X dan alamat elemen terakhir di-dealokasi 	 */
@@ -134,7 +122,7 @@ void DelFirst (List *L, address *P);
 /*         Elemen List berkurang satu (mungkin menjadi kosong)     */
 /* First elemen yang baru adalah suksesor elemen pertama yang lama */
 
-void DelP(List *L, infotype X);
+/* void DelP(List *L, infoPenyakit X);
 /* I.S   : Sembarang  */
 /* F.S   : Jika ada elemen  list beraddress P,dengan info (P)=X    */
 /*         Maka P dihapus dari List dan di-dealokasi		   */
@@ -154,7 +142,7 @@ void DelAfter(List *L, address *Pdel, address Prec);
 /*         Pdel adalah alamat elemen List yang dihapus		*/
 
 /* *************PROSES SEMUA ELEMEN ****************   */
-void PrintInfo(List L);
+void PrintInfo(List L, char **C);
 /* I.S   : List mungkin kosong 	*/
 /* F.S   : Jika list tidak kosong, semua info yang disimpan pada */
 /*         elemen list di-print					 */
@@ -163,35 +151,11 @@ void PrintInfo(List L);
 int NbElmt(List L);
 /* Mengirimkan banyaknya elemen list, mengirimkan Nol jika kosong */
 
-infotype Max(List L);
-/* Mengirimkan nilai info(P) yang maksimum */
-
-address AdrMax(List L);
-/* mengirimkan address P, dengan info (P) yang maksimum */
-
-infotype Min(List L);
-/* mengirimkan nilai info(P), yang minumum    */
-
-address AdrMin(List L);
-/* mengirimkan address P, dengan info(P) yang minimum */
-
-float Average(List L);
-/* mengirimkan nilai rata-rata info(P)	*/
-
 /******************************************************/
 /***   		PROSES TERHADAP LIST		    ***/
 /******************************************************/
 void DelAll(List *L);
 /* Delete semua elemen list, dan alamat elemen di-dealokasi */
-
-void InversList(List *L);
-/* I.S   : sembarang  			*/
-/* F.S   : elemen list  dibalik		*/
-/*	   elemen terakhir menjadi elemen pertama, dst    */
-/*	   Membalik elemen list, tanpa alokasi/dealokasi  */
-
-List FInversList(List L);
-/* mengirimkan list baru, hasil invers dari L 	*/
 
 void CopyList(List L1, List *L2);
 /* I.S   : L1 sembarang 				*/
@@ -201,37 +165,5 @@ void CopyList(List L1, List *L2);
 List FCopyList(List L);
 /* Mengirimkan list yang merupakan salinan L  		*/
 
-void CpAlokList(List Lin, List  *Lout);
-/* I.S   : Lin sembarang				    */
-/* F.S   : Jika semua alokasi berhasil, maka Lout berisi    */
-/*         hasil copy Lin. Jika ada alokasi yang  gagal     */
-/*         maka Lout=Nil, dan semua elemen yang terlanjur   */
-/*	   dialokasi, didealokasi dengan melakukan alokasi  */
-/*	   elemen. Lout adalah List kosong, jika ada alokasi*/
-/*	   elemen yang gagal				    */
-
-void konkat(List L1, List L2, List *L3);
-/* I.S   : L1 dan L2 sembarang				      */
-/* F.S   : L1 dan L2 tetap, L3 adalah hasil konkatenasi L1 &  */
-/*	   L2. Jika semua alokasi berhasil, maka L3  adalah   */
-/*	   hasil konkatenasi. Jika ada alokasi yang gagal,    */	
-/*	   semua elemen yang sudah dialokasi, di-dealokasi dan*/
-/*	   L3=Nil					      */
-
-void konkat1(List *L1, List *L2, List *L3);
-/* I.S  : L1 dan L2 sembarang				*/
-/* F.S  : L1 dan L2 kosong,  L3 adalah hasil konkatenasi*/
-/*	  L1 & L2, 					*/
-/* Konkatenasi 2 buah list : L1 dan L2 menghasilkan L3  */
-/* yang baru (dengan elemen list L1 dan L2). Dan L1 dan */
-/* L2 menjadi List kosong. Tidak ada alokasi/dealokasi  */
-
-void PecahList(List *L1, List *L2, List L);
-/* I.S  : L mungkin kosong  */
-/* F.S  : Berdasarkan L, dibentuk 2 buah list L1 dan L2     */
-/*        L tidak berubah. Untuk membentuk L1 dan L2 harus  */
-/*	  alokasi. L1 berisi separuh elemen  L dan L2 berisi*/
-/*	  sisa elemen L. Jika elemen L ganjil, maka separuh */
-/* 	  adalah NbElmt(L)div 2				    */
 
 #endif
