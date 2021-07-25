@@ -241,7 +241,8 @@ void PrintInfo(List L, char **C)
   } else { /* List tidak kosong */
   		int j = 1;
 	    do { 
-	 		printf("	%d. %s --> %s\n", j++, C[P->info.Penyakit-1], P->info.kategori);
+	    	printf("								      ");
+	 		printf("%d. %s --> %s\n", j++, C[P->info.Penyakit-1], P->info.kategori);
 		  	P=Next(P);
 	    } while(P!=Nil); 
 	 }
