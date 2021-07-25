@@ -18,12 +18,18 @@ int main (){
 	int menuPilihan;
 	
 	do{
-	printf("========Aplikasi Layanan Dokter Hewan========\n\n");
-    	puts("1. Registrasi\n");
-    	puts("2. Lihat Antrian\n");
-    	puts("3. Proses Pelayanan\n");
-    	puts("4. Keluar\n\n");
-    	printf("Menu Pilihan : \n"); scanf("%d", &menuPilihan);
+	printf("					====================================\n");
+	printf("					||      Layanan Dokter Hewan      ||\n");
+	printf("					||            NINUNINU            ||\n");
+	printf("					------------------------------------\n");
+	printf("					||     By: Hilma SR & Nisa HY     ||\n");
+	printf("					====================================\n");
+    	printf("					||  1. Registrasi                 ||\n");
+    	printf("					||  2. Lihat Antrian              ||\n");
+    	printf("					||  3. Proses Pelayanan           ||\n");
+    	printf("					||  4. Keluar                     ||\n");
+    	printf("					====================================\n\n");
+    	printf("					Menu Pilihan : "); scanf("%d", &menuPilihan);
     	
     	if(menuPilihan == 1){
     		Registrasi(&Q);
