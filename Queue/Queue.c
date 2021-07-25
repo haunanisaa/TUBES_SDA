@@ -190,7 +190,7 @@ char *arrPenyakit[9] = {
 void printPenyakit(){
 	int i;
 	for (i=0; i<9; i++){
-		printf("	%d. %s\n",i+1, arrPenyakit[i]);
+		printf("				  	%d. %s\n",i+1, arrPenyakit[i]);
 	}
 }
 
@@ -315,24 +315,24 @@ void printQueue(Queue Q){
 	int lenght;
 	
 	if(IsQueueEmpty(Q)){
-		printf("	* Tidak Ada Antrian yang Terdaftar *\n\n");
+		printf("\n					* Tidak Ada Antrian yang Terdaftar *\n\n");
 	} else {
 		P = Q.Front;
-		printf("	====================================\n");
-		printf("	           Daftar Antrian\n");
-		printf("	====================================\n");
+	printf("					====================================\n");
+	printf("						      Daftar Antrian\n");
+	printf("					====================================\n");
 		while(P != Nil){
-			printf("	No. Antrian                 : %d\n", i++);
-			printf("	Nama Hewan                  : %s\n", P->info.nama);
-			printf("	Datang di menit ke          : %d\n", P->info.waktuDatang);
-			printf("	Penyakit yang Diderita      : ");
+			printf("					No. Antrian                 : %d\n", i++);
+			printf("					Nama Hewan                  : %s\n", P->info.nama);
+			printf("					Datang di menit ke          : %d\n", P->info.waktuDatang);
+			puts("					Penyakit yang Diderita      :");
 			PrintInfo(P->info.listPenyakit, arrPenyakit);
-			printf("	Nilai Prioritas             : %d\n", P->info.nilaiPrioritas);
-			printf("	Estimasi Waktu Pelayanan    : %d\n", P->info.waktuEstimasi);
-			printf("	Waktu Mulai Pelayanan       : %d\n", P->info.waktuMulai);
-			printf("	Waktu Selesai Pelayanan     : %d\n", P->info.waktuAkhir);
+			printf("					Nilai Prioritas             : %d\n", P->info.nilaiPrioritas);
+			printf("					Estimasi Waktu Pelayanan    : %d\n", P->info.waktuEstimasi);
+			printf("					Waktu Mulai Pelayanan       : %d\n", P->info.waktuMulai);
+			printf("					Waktu Selesai Pelayanan     : %d\n", P->info.waktuAkhir);
 			
-			printf("	------------------------------------\n");
+			printf("					------------------------------------\n");
 			
 			P = Next(P);
 		}		
@@ -351,22 +351,23 @@ void Registrasi(Queue *Q){
 	int tempPenyakit[9];
 	int i, totalPenyakit;
 	
-	printf("	====================================\n");
-	printf("	             Registrasi\n");
-	printf("	====================================\n");
-	printf("	Nama Hewan                  : "); scanf("%s", &X.nama);
+	printf("					====================================\n");
+	printf("					              Registrasi\n");
+	printf("					====================================\n");
+	printf("					Nama Hewan                  : "); scanf("%s", &X.nama);
 	fflush(stdin);
-	printf("	Datang di menit ke          : "); scanf("%d", &X.waktuDatang);
+	printf("					Datang di menit ke          : "); scanf("%d", &X.waktuDatang);
 	fflush(stdin);
 	
 	printf("\n");
-	printf("	*** List Penyakit ***\n");
+	printf("					       *** List Penyakit ***\n");
 	printPenyakit();
 	printf("\n");
-	printf("	Jumlah Penyakit             : "); scanf("%d", &totalPenyakit);
-	printf("	No. Penyakit yang Diderita  : ");
+	printf("					Jumlah Penyakit             : "); scanf("%d", &totalPenyakit);
+	puts("					No. Penyakit yang Diderita  : ");
 	for (i=0; i<totalPenyakit; i++){
-		scanf("		%d", &tempPenyakit[i]);
+	    printf("					");
+		scanf("	%d", &tempPenyakit[i]);
 	}
 	
 	int countR = 0;
@@ -395,7 +396,7 @@ void Registrasi(Queue *Q){
 	
 	enQueue(Q, X);
 	printf("\n");
-	printf("	Ketik apa saja untuk lanjut! \n\n");
+	printf("					 ***Ketik apa saja untuk lanjut!*** \n\n");
 	getch();
 }
 
@@ -408,14 +409,13 @@ void prosesAntrian(Queue *Q){
 	
 	
 	if(IsQueueEmpty(*Q)){
-		printf("\n");
-        printf("	* Tidak Ada Antrian yang Terdaftar *\n\n");
+		printf("\n					* Tidak Ada Antrian yang Terdaftar *\n\n");
     } else {
     	while(pilih=='Y' && !IsQueueEmpty(*Q)){
-    	printf("	====================================\n");
-		printf("	           Proses Antrian\n");
+    	printf("					====================================\n");
+		printf("							  Proses Antrian\n");
 		printQueue(*Q);
-		printf("	Memulai Proses Pelayanan [Y/N]? "); 
+		printf("					Memulai Proses Pelayanan [Y/N]? "); 
 		fflush(stdin);
 		scanf("%c", &pilih);
 		
