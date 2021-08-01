@@ -30,7 +30,7 @@ int main (){
         printf("					||  3. Proses Pelayanan           ||\n");
         printf("					||  4. Keluar                     ||\n");
         printf("					====================================\n\n");
-        printf("					Menu Pilihan : "); scanf("%c", &menuPilihan);
+        printf("					Menu Pilihan : "); scanf(" %c", &menuPilihan);
     	
     	if(menuPilihan == '1'){
     		Registrasi(&Q);
